@@ -11,6 +11,13 @@ exports = module.exports = class {
 
         this.name = name;
         this._db = db;
+
+        this.raw = new Proxy({}, {
+            get: function (obj, prop) {
+
+                throw new Error(`Raw mode not supported. Attempted to access db.raw.${prop}`);
+            }
+        });
     }
 
     _collection() {
