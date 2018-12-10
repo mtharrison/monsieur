@@ -3,12 +3,12 @@ const Monsieur = require('.');
 
 const fn = async () => {
 
-    const database = new Monsieur.Db('wave');
+    const database = new Monsieur.Db('test');
 
     await database.connect();
-    database.table(['card']);
+    database.table(['example']);
 
-    database.card.changes(function (change) {
+    database.example.changes(function (change) {
 
         console.log(JSON.stringify(change, null, 2));
     });
